@@ -42,3 +42,23 @@ locals {
     Context = var.context
   }
 }
+
+
+#Kubernetes/ArgoCD Variables
+variable "registry_credentials_dockerconfig_username" {
+  type        = string
+  description = "Username of Docker Registry Credentials for ArgoCD"
+  sensitive   = true
+}
+
+variable "registry_credentials_dockerconfig_password" {
+  type        = string
+  description = "Password of Docker Registry Credentials for ArgoCD"
+  sensitive   = true
+}
+
+variable "argocd_git_access_token" {
+  type        = string
+  description = "Git Access Token for ArgoCD"
+  sensitive   = true
+}

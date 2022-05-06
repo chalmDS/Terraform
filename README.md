@@ -8,16 +8,15 @@
 - Adjust set-env.sh
     - ACCESS_KEY and SECRET_KEY you get from the OTC UI
 - Source set-env.sh
-- Go to terraform-remote-state-bucket-creation and execute terraform init and apply
-   - Add the backend config under ${context}/${stage}/settings.tf
-   - Add the backend config under ${context}/${stage}/kubernetes/settings.tf
 - Go into the folder ${context}/${stage} (in this example it is showcase/dev)
    - Adjust variables.tf to your needs
    - Add or remove some modules from main.tf if you like
       - Use https://registry.terraform.io/modules/iits-consulting/project-factory/opentelekomcloud/latest
-   - Execute Terraform init and apply
-         - It will take like 10-15 Minutes till everything is up
-         - Sometimes it fails because so many requests are executed so just try again
+      - Execute Terraform init and apply
+        - It will take like 10-15 Minutes till everything is up
+      - If it fails most probably you need to activate CCE Access. Go to the OTC UI to the CCE which you created and press agree
+        ![cce-allow](./cce-allow-screenshot.png)
+
 
 ## Try out if the cluster is available
 - execute inside your shell "source ./shell-helper.sh"
@@ -29,8 +28,7 @@
 
 
 ## Deploy GitOps and ArgoCD
-- Go into the folder ${context}/${stage}/kubernetes
-- Adjust ${context}/${stage}/kubernetes/main.tf
+- Uncomment all the lines from kubernetes.tf
   - Change argocd_git_access_token_username value to the right value
   - Change argocd_project_source_repo_url to your git repo url
 - Execute Terraform init and apply
