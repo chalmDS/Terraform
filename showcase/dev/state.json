@@ -1,0 +1,825 @@
+{
+  "version": 4,
+  "terraform_version": "1.1.4",
+  "serial": 3,
+  "lineage": "b1b0e265-96e0-6ec8-c12f-232b3e832812",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "data",
+      "type": "opentelekomcloud_identity_project_v3",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "domain_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "enabled": true,
+            "id": "fb107fb3e2de44bfba4e808c0067048d",
+            "is_domain": false,
+            "name": "eu-de",
+            "parent_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "region": "eu-de"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "data",
+      "type": "opentelekomcloud_identity_project_v3",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "domain_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "enabled": true,
+            "id": "fb107fb3e2de44bfba4e808c0067048d",
+            "is_domain": false,
+            "name": "eu-de",
+            "parent_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "region": "eu-de"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "opentelekomcloud_cce_addon_v3",
+      "name": "autoscaler",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "cluster_id": "2f9d1d08-d2ae-11ec-90a6-0255ac101703",
+            "description": "A component that automatically adjusts the size of a Kubernetes Cluster so that all pods have a place to run and there are no unneeded nodes.",
+            "id": "fcdf11cb-d2ae-11ec-adf1-0255ac1017ee",
+            "name": "autoscaler",
+            "template_name": "autoscaler",
+            "template_version": "1.21.1",
+            "timeouts": null,
+            "values": [
+              {
+                "basic": {
+                  "cceEndpoint": "https://cce.eu-de.otc.t-systems.com",
+                  "ecsEndpoint": "https://ecs.eu-de.otc.t-systems.com",
+                  "euleros_version": "2.2.5",
+                  "region": "eu-de",
+                  "swr_addr": "100.125.7.25:20202",
+                  "swr_user": "hwofficial"
+                },
+                "custom": {
+                  "cluster_id": "2f9d1d08-d2ae-11ec-90a6-0255ac101703",
+                  "coresTotal": "16000",
+                  "expander": "priority",
+                  "logLevel": "4",
+                  "maxEmptyBulkDeleteFlag": "11",
+                  "maxNodesTotal": "100",
+                  "memoryTotal": "64000",
+                  "scaleDownDelayAfterAdd": "15",
+                  "scaleDownDelayAfterDelete": "15",
+                  "scaleDownDelayAfterFailure": "3",
+                  "scaleDownEnabled": "true",
+                  "scaleDownUnneededTime": "7",
+                  "scaleDownUtilizationThreshold": "0.2",
+                  "scaleUpCpuUtilizationThreshold": "0.8",
+                  "scaleUpMemUtilizationThreshold": "0.8",
+                  "scaleUpUnscheduledPodEnabled": "true",
+                  "scaleUpUtilizationEnabled": "true",
+                  "tenant_id": "fb107fb3e2de44bfba4e808c0067048d",
+                  "unremovableNodeRecheckTimeout": "7"
+                }
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.cce.data.opentelekomcloud_identity_project_v3.current",
+            "module.cce.opentelekomcloud_cce_cluster_v3.cluster",
+            "module.cce.opentelekomcloud_vpc_eip_v1.cce_eip",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "opentelekomcloud_cce_addon_v3",
+      "name": "metrics",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cluster_id": "2f9d1d08-d2ae-11ec-90a6-0255ac101703",
+            "description": "Metrics Server is a cluster-level resource usage data aggregator.",
+            "id": "fcdd71cc-d2ae-11ec-a338-0255ac10161d",
+            "name": "metrics-server",
+            "template_name": "metrics-server",
+            "template_version": "1.1.10",
+            "timeouts": null,
+            "values": [
+              {
+                "basic": {
+                  "swr_addr": "100.125.7.25:20202",
+                  "swr_user": "hwofficial"
+                },
+                "custom": {}
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.cce.data.opentelekomcloud_identity_project_v3.current",
+            "module.cce.opentelekomcloud_cce_cluster_v3.cluster",
+            "module.cce.opentelekomcloud_vpc_eip_v1.cce_eip",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "opentelekomcloud_cce_cluster_v3",
+      "name": "cluster",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "annotations": null,
+            "authenticating_proxy": [],
+            "authenticating_proxy_ca": null,
+            "authentication_mode": "x509",
+            "billing_mode": 0,
+            "certificate_clusters": [
+              {
+                "certificate_authority_data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUREekNDQWZlZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFwTVJrd0Z3WURWUVFLRXhCRFEwVWcKVkdWamFHNXZiRzluYVdWek1Rd3dDZ1lEVlFRREV3TkRRMFV3SGhjTk1qSXdOVEV6TVRFeE9ESTVXaGNOTkRJdwpOVEV6TVRFeE9ESTVXakFwTVJrd0Z3WURWUVFLRXhCRFEwVWdWR1ZqYUc1dmJHOW5hV1Z6TVF3d0NnWURWUVFECkV3TkRRMFV3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRFZZZnNBYUpZWFhKWUQKVUZ5Zkd0dEFkS21KQjNaMEJkZ1c5V3U5czNUSVZ0QUoveTJWMHBsQWVVWXdPNTBRYlBUWkoxYWhEdmhweDk3NwpkMGVXc1ZzcmRBTkk4YVI4NjEyVG14K2hZMlF5WUYzSmVmSWt4MHFqcGI3R2tGOTJITld1bTNyMldCNXFoSjNCCmE2eGhpTzRiRTRnS0d6NHQwdzlDbEgzcHN0M0gyU1NMM3d4R3FMelI3NTdod05nbkpORm90OFhpVXZWWjZIVC8KYWU2dFZXM3VFRy9BdzhMTEVHYStVN25BaVE4MSt2QmNsNHZINzA5MjNBQjA2MUJsOGJmZkdhR3lvcC9tTWpPaApCZVY5a2lWWFhmTXZNR2ZtYnh1bDlOTkZ4bUZlNFl4QnNGcVJlVWRBRncvUVRqaDc5SElIRXFxb0V4VVg2MnBTCmFnOExsU3VoQWdNQkFBR2pRakJBTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQQmdOVkhSTUJBZjhFQlRBREFRSC8KTUIwR0ExVWREZ1FXQkJUbDBmS3dOUVRCMTZqMDN6ZVUvTnR3Ny9FdUpqQU5CZ2txaGtpRzl3MEJBUXNGQUFPQwpBUUVBVFZoazVjYTI3N3c5T3JJUXJEZ0JrSUZ6Rm5keDdXOU1MdHhBUFZRZ0FiUCtXMERBVGgyNm1jWkV3QUUvCjVjOTlKbTFpSU53WUZmRHN2eEptMkN0WHcyczk4Z1BzblMyNUwzbVVlakZ0UHNTZEJKTm5NblBUWmIrSGpkN2sKZDVXOHI0WFNoYnVOZ2ZxNVRlSStDUGJINmJkZjdCWFo5R1dkTmhRN1d2MDI5ZHdwVm1td2ZLdU1hM21iMklSTApuL0ROTlhXQWFYc0h5YnZvL1F1c2NuZ1AyL29HUXNSbG8wQm42Y3Rod3JwQUkrUStqdmkrVWFudTR1VG92em4wClNGSnVNdmgwM1hsZHJTaFc2Q3VybVVLZzkzK2wzR1JWS1NLVk00cnlLT0tpQVlFOHQ2ZHk5WHBhVWNWT1VyMkoKY3hBV1Z2Q2ducDNwVEIyOXpoQXlGRjNpcVE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+                "name": "internalCluster",
+                "server": "https://192.168.44.161:5443"
+              },
+              {
+                "certificate_authority_data": "",
+                "name": "externalCluster",
+                "server": "https://80.158.88.222:5443"
+              },
+              {
+                "certificate_authority_data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUREekNDQWZlZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFwTVJrd0Z3WURWUVFLRXhCRFEwVWcKVkdWamFHNXZiRzluYVdWek1Rd3dDZ1lEVlFRREV3TkRRMFV3SGhjTk1qSXdOVEV6TVRFeE9ESTVXaGNOTkRJdwpOVEV6TVRFeE9ESTVXakFwTVJrd0Z3WURWUVFLRXhCRFEwVWdWR1ZqYUc1dmJHOW5hV1Z6TVF3d0NnWURWUVFECkV3TkRRMFV3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRFZZZnNBYUpZWFhKWUQKVUZ5Zkd0dEFkS21KQjNaMEJkZ1c5V3U5czNUSVZ0QUoveTJWMHBsQWVVWXdPNTBRYlBUWkoxYWhEdmhweDk3NwpkMGVXc1ZzcmRBTkk4YVI4NjEyVG14K2hZMlF5WUYzSmVmSWt4MHFqcGI3R2tGOTJITld1bTNyMldCNXFoSjNCCmE2eGhpTzRiRTRnS0d6NHQwdzlDbEgzcHN0M0gyU1NMM3d4R3FMelI3NTdod05nbkpORm90OFhpVXZWWjZIVC8KYWU2dFZXM3VFRy9BdzhMTEVHYStVN25BaVE4MSt2QmNsNHZINzA5MjNBQjA2MUJsOGJmZkdhR3lvcC9tTWpPaApCZVY5a2lWWFhmTXZNR2ZtYnh1bDlOTkZ4bUZlNFl4QnNGcVJlVWRBRncvUVRqaDc5SElIRXFxb0V4VVg2MnBTCmFnOExsU3VoQWdNQkFBR2pRakJBTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQQmdOVkhSTUJBZjhFQlRBREFRSC8KTUIwR0ExVWREZ1FXQkJUbDBmS3dOUVRCMTZqMDN6ZVUvTnR3Ny9FdUpqQU5CZ2txaGtpRzl3MEJBUXNGQUFPQwpBUUVBVFZoazVjYTI3N3c5T3JJUXJEZ0JrSUZ6Rm5keDdXOU1MdHhBUFZRZ0FiUCtXMERBVGgyNm1jWkV3QUUvCjVjOTlKbTFpSU53WUZmRHN2eEptMkN0WHcyczk4Z1BzblMyNUwzbVVlakZ0UHNTZEJKTm5NblBUWmIrSGpkN2sKZDVXOHI0WFNoYnVOZ2ZxNVRlSStDUGJINmJkZjdCWFo5R1dkTmhRN1d2MDI5ZHdwVm1td2ZLdU1hM21iMklSTApuL0ROTlhXQWFYc0h5YnZvL1F1c2NuZ1AyL29HUXNSbG8wQm42Y3Rod3JwQUkrUStqdmkrVWFudTR1VG92em4wClNGSnVNdmgwM1hsZHJTaFc2Q3VybVVLZzkzK2wzR1JWS1NLVk00cnlLT0tpQVlFOHQ2ZHk5WHBhVWNWT1VyMkoKY3hBV1Z2Q2ducDNwVEIyOXpoQXlGRjNpcVE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+                "name": "externalClusterTLSVerify",
+                "server": "https://80.158.88.222:5443"
+              }
+            ],
+            "certificate_users": [
+              {
+                "client_certificate_data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVLVENDQXhHZ0F3SUJBZ0lJTWxnWGtIOEI4RTB3RFFZSktvWklodmNOQVFFTEJRQXdLVEVaTUJjR0ExVUUKQ2hNUVEwTkZJRlJsWTJodWIyeHZaMmxsY3pFTU1Bb0dBMVVFQXhNRFEwTkZNQjRYRFRJeU1EVXhNekV4TVRnegpNRm9YRFRJM01EVXhNekV4TVRnek1Gb3dNakVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhGekFWCkJnTlZCQU1URG5ONWMzUmxiVHB0WVhOMFpYSnpNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUIKQ2dLQ0FRRUExV0g3QUdpV0YxeVdBMUJjbnhyYlFIU3BpUWQyZEFYWUZ2VnJ2Yk4weUZiUUNmOHRsZEtaUUhsRwpNRHVkRUd6MDJTZFdvUTc0YWNmZSszZEhsckZiSzNRRFNQR2tmT3RkazVzZm9XTmtNbUJkeVhueUpNZEtvNlcrCnhwQmZkaHpWcnB0NjlsZ2Vhb1Nkd1d1c1lZanVHeE9JQ2hzK0xkTVBRcFI5NmJMZHg5a2tpOThNUnFpODBlK2UKNGNEWUp5VFJhTGZGNGxMMVdlaDAvMm51clZWdDdoQnZ3TVBDeXhCbXZsTzV3SWtQTmZyd1hKZUx4KzlQZHR3QQpkT3RRWmZHMzN4bWhzcUtmNWpJem9RWGxmWklsVjEzekx6Qm41bThicGZUVFJjWmhYdUdNUWJCYWtYbEhRQmNQCjBFNDRlL1J5QnhLcXFCTVZGK3RxVW1vUEM1VXJvUUlEQVFBQm80SUJTakNDQVVZd0RnWURWUjBQQVFIL0JBUUQKQWdXZ01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUNCZ2dyQmdFRkJRY0RBVEFmQmdOVkhTTUVHREFXZ0JUbAowZkt3TlFUQjE2ajAzemVVL050dzcvRXVKakNCOHdZRFZSMFJCSUhyTUlIb2dpUnJkV0psY201bGRHVnpMbVJsClptRjFiSFF1YzNaakxtTnNkWE4wWlhJdWJHOWpZV3lDRm10MVltVnlibVYwWlhNdVpHVm1ZWFZzZEM1emRtT0MKRW10MVltVnlibVYwWlhNdVpHVm1ZWFZzZElJS2EzVmlaWEp1WlhSbGM0SW5hWE4wYVc4dGMybGtaV05oY2kxcApibXBsWTNSdmNpNXBjM1JwYnkxemVYTjBaVzB1YzNaamdoZGxlSFJsY201aGJDNXJkV0psY201bGRHVnpMbk4yClk0Y1EvUUFTTkFBQUFBQUFBQUFBQUFBQUFZY0Vmd0FBQVljRUN2Y0FBb2NFcWY0ZkFvY0VDdmNBQVljRVpGTysKcVljRUNnQ3lSb2NFVUo1WTNvY0V3S2dzb1ljRXFmNGZBakFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSkt1MwpFVzhXYUtrUzBQOXZXK3hMR3oycU12SGxqVHVrVmdWajdwbzlJWnQ2a2hYYStzdzdFRmM4ZEpHVTd6WHRabW1RCkwxSjBmNER0cnhmbGxaVGx3UkMzQzlRZW5YckJGNEx4MklsU1A4WTFZQ3BTcHU5dS9abHZxQ2I5R3gzWGtGbEEKUDhqSmdodXlEN0lJY0YyREphYVBWajJ6aktQQktyQmpoZDFaTVpTQ083WjhFVThQK25rNEpmcXBGeE51WVladgpqSjBIZGdhdjdyNlV2cldMekF2SmI4am1GT2szcGE3bzBLSHVUMElIdlg3citiRzhhL3JyYy8ydGNaQStsd0UyClRVTm1VczRvQzNGSHNRWlNhTjFlRlZiUFVOaThYM0gzNmQwTVovTXZ0WFIrQXV2b3BEUmpxMFFlNC85U09uWWIKc0puK1BNUzRDamRCTVdoVkZnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=",
+                "client_key_data": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMVdIN0FHaVdGMXlXQTFCY254cmJRSFNwaVFkMmRBWFlGdlZydmJOMHlGYlFDZjh0CmxkS1pRSGxHTUR1ZEVHejAyU2RXb1E3NGFjZmUrM2RIbHJGYkszUURTUEdrZk90ZGs1c2ZvV05rTW1CZHlYbnkKSk1kS282Vyt4cEJmZGh6VnJwdDY5bGdlYW9TZHdXdXNZWWp1R3hPSUNocytMZE1QUXBSOTZiTGR4OWtraTk4TQpScWk4MGUrZTRjRFlKeVRSYUxmRjRsTDFXZWgwLzJudXJWVnQ3aEJ2d01QQ3l4Qm12bE81d0lrUE5mcndYSmVMCngrOVBkdHdBZE90UVpmRzMzeG1oc3FLZjVqSXpvUVhsZlpJbFYxM3pMekJuNW04YnBmVFRSY1poWHVHTVFiQmEKa1hsSFFCY1AwRTQ0ZS9SeUJ4S3FxQk1WRit0cVVtb1BDNVVyb1FJREFRQUJBb0lCQVFEVTlaK3JUYllXQkxwVwovbG9pRkl5amJJdFREaGFqUHIzbVUvTytkUjdsWHZic016Zk1vazErOGtvaGt5MXpHanJYaXhKRFZZeUpEZ2cyCkVscHBSQUtJZ0pWU3RKQUVlR2FCRFQxcE5hZm5PeFAvSTJ5T1ZqUGcxV2RzQnVTdkhhSUpUSFZRN0tzV2hkcG8KRXMwTTNyczhYS2JWNTFDTUxXdTZlRGFlQ1h5Y21RRDZKWThla2tIM3FQUDNmcVNvTGVUOFRTdWJJaVUvR2oyVgp0a1ZtbDlwM3c3Z2FzN1phVmFwQnhXbGFhVHdYTDFaMFNxM01hL3pTQzA5SllqM3llZzJKSGdDMXVVNjY1OUJjCkFaNElLZjQxZDN1Vm9jM1VBUXMwUlFCcUpkQzk5KzJBei9yeFdWdTFMK1NzMnN1L2RLNVBVTGdlamlRWUlvVjcKUXVLdTFBc0JBb0dCQU94TWthTWJiTk4yUzMwUUhPWHFqblFLTlcrQW9zc2dOeis5ZDZ1azRvQXkyUGswd0M3YgpRQTNTclBHV1ZMMzAreVFPSEpEcU5FeWFYdUx1RzBXTkppbjFMbnNmcUgyUGR1Y2x3MWJtdXQwRWhQYTgxcEtICmdxUGVRYnhaclZLQmxRQVhWSHFURzhzeHRYbVcrdDVmWXM5ZFNVdm5yVGNZV0lDMGYyQXJRR1V4QW9HQkFPY3MKVEV4WGsrRWxsZmtPcHhTcUhRRU15d0VYWi90NDRwQnc4UlpVRHNZenJmcG1DSjlzamkvOWx5Y3FRTUVFNWhXMQoxdTRjTTdSdjhFazdKR0lFQUZOK1QyTkIxRG5JVlArcXU0Qis5VGtKcjIxMExsNEI5OEZDYWJoRVFEKzVJcWVWCmIxa05DWk8zd2xZZFJiNm0rdlAzd3FIcitKQkZJVmpHSlphZFpGRnhBb0dCQUpaU0ExZktpNGxlT0psL2xaS2gKaXl2QWpzdTIvbGpQenJYS3R3VkhLQnU3dlJHVGdDcU9xWW5obXNrNUJBR3ZoZEFpOWdNdUtrVU04dzNUd1IrVwpzaytBdktmd3RNUGpieFdPalZ5TC9SVzYyVWNKVEVyOHo1dWxPUll6eWpHeFkzTWlaRWh4cXYyeFNxdmw0d054CmxLOHJ2Z1AraHMrRXVsQnVBcFhRRGZBUkFvR0FXcTU1ejRpYkxicDh0aElWWUhuS250clIxei9EUGxZUktlL2oKNG9wZXNVa2NlaGtFVU9WWWNXTGNwRFJpNmxSdG5SNlRqUnZxL0dEY3RSMUtERmpkZCtNWWFTc3RnTzBneXBuQwpxNGtoMEpvSUFydU1aTHdJMy9xWlZmc1A2TzlLdE1wZHYyVHAyTlJBbTE4b09MMXZ1N3Y0MFdPclFZeWNwQ0kyCkpIcmhHMEVDZ1lBdGRudlhnNldzRjdEcC9tWUtISXg1VTVlR3FuaGZJdEpuWVJPS21jb0wzOU5YL3p4TjMwckwKNUtTOXUrdkVHQU9Ka2JxM25CSkNoMXo2bk1EdUJvTlRTUStDc2pvRjM1MXZweUVKT2tlRk5QWTZXWHhiQmtwcQpCWVFBNEVmN1VjQmgxTmswU2FOYUszeEpnYUVBMCt2cGt1VGlaVWtEZm9LbkJQdlhpa01GNFE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=",
+                "name": "user"
+              }
+            ],
+            "cluster_type": "VirtualMachine",
+            "cluster_version": "v1.21",
+            "container_network_cidr": "172.16.0.0/16",
+            "container_network_type": "vpc-router",
+            "description": "Kubernetes Cluster showcase01-dev.",
+            "eip": "80.158.88.222",
+            "eni_subnet_cidr": "",
+            "eni_subnet_id": "",
+            "extend_param": null,
+            "external": "https://80.158.88.222:5443",
+            "external_otc": "https://2f9d1d08-d2ae-11ec-90a6-0255ac101703.cce.eu-de.otc.t-systems.com",
+            "flavor_id": "cce.s1.small",
+            "highway_subnet_id": "",
+            "id": "2f9d1d08-d2ae-11ec-90a6-0255ac101703",
+            "ignore_addons": null,
+            "installed_addons": [
+              "ecee4821-d2ae-11ec-adf1-0255ac1017ee",
+              "ecf006b5-d2ae-11ec-adf1-0255ac1017ee",
+              "fcdd71cc-d2ae-11ec-a338-0255ac10161d",
+              "fcdf11cb-d2ae-11ec-adf1-0255ac1017ee"
+            ],
+            "internal": "https://192.168.44.161:5443",
+            "kube_proxy_mode": "iptables",
+            "kubernetes_svc_ip_range": "10.247.0.0/16",
+            "labels": null,
+            "multi_az": null,
+            "name": "showcase01-dev",
+            "no_addons": null,
+            "region": "eu-de",
+            "security_group_control": "29a42eaf-577e-4bcf-aeda-812c5bc19118",
+            "security_group_node": "4fe6578b-63a2-4904-9320-7e5f2dba0fde",
+            "status": "Available",
+            "subnet_id": "0b068c02-8b40-457d-99f5-966ed64cd5a8",
+            "timeouts": {
+              "create": "60m",
+              "delete": "60m"
+            },
+            "vpc_id": "2c68da83-a6dd-4253-a8b7-d8744c59a888"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozNjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.cce.opentelekomcloud_vpc_eip_v1.cce_eip",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "opentelekomcloud_cce_node_pool_v3",
+      "name": "cluster_node_pool",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "eu-de-03",
+            "cluster_id": "2f9d1d08-d2ae-11ec-90a6-0255ac101703",
+            "data_volumes": [
+              {
+                "extend_param": "",
+                "kms_id": "",
+                "size": 100,
+                "volumetype": "SSD"
+              }
+            ],
+            "docker_base_size": 20,
+            "docker_lvm_config_override": null,
+            "flavor": "s2.large.4",
+            "id": "0735a581-d2af-11ec-90a6-0255ac101703",
+            "initial_node_count": 2,
+            "k8s_tags": {},
+            "key_pair": "showcase01-dev-cluster-keypair",
+            "max_node_count": 4,
+            "max_pods": null,
+            "min_node_count": 2,
+            "name": "showcase01-dev-node-pool",
+            "os": "EulerOS 2.5",
+            "password": null,
+            "postinstall": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "preinstall": null,
+            "priority": 1,
+            "root_volume": [
+              {
+                "extend_param": "",
+                "size": 50,
+                "volumetype": "SSD"
+              }
+            ],
+            "scale_down_cooldown_time": 15,
+            "scale_enable": true,
+            "server_group_reference": null,
+            "status": "",
+            "subnet_id": null,
+            "taints": [],
+            "timeouts": null,
+            "user_tags": {
+              "Context": "showcase01",
+              "Stage": "dev"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWZhdWx0Ijo5MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTgwMDAwMDAwMDAwMCwicmVhZCI6OTAwMDAwMDAwMDAwLCJ1cGRhdGUiOjE4MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.cce.opentelekomcloud_cce_cluster_v3.cluster",
+            "module.cce.opentelekomcloud_compute_keypair_v2.cluster_keypair",
+            "module.cce.opentelekomcloud_vpc_eip_v1.cce_eip",
+            "module.cce.tls_private_key.cluster_keypair",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "opentelekomcloud_compute_keypair_v2",
+      "name": "cluster_keypair",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "showcase01-dev-cluster-keypair",
+            "name": "showcase01-dev-cluster-keypair",
+            "private_key": "",
+            "public_key": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK+4eep0mE60Wm8dDop46X/ZXnkSm8iimHxTtB6LVCkdgcDECUIbxmfptqqtRtcLxYYrFLYFNDavnA/PFXi/yPI=\n",
+            "region": "eu-de",
+            "shared": false,
+            "value_specs": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cce.tls_private_key.cluster_keypair"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "opentelekomcloud_vpc_eip_v1",
+      "name": "cce_eip",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bandwidth": [
+              {
+                "charge_mode": "traffic",
+                "name": "showcase01-dev-cluster-kubectl-endpoint",
+                "share_type": "PER",
+                "size": 50
+              }
+            ],
+            "id": "86d12ac1-5b70-4828-9818-c8ebd1b1f69d",
+            "publicip": [
+              {
+                "ip_address": "80.158.88.222",
+                "port_id": "6de68691-3da1-41dd-b7f2-f2d79dc5eea0",
+                "type": "5_bgp"
+              }
+            ],
+            "region": "eu-de",
+            "tags": {
+              "Context": "showcase01",
+              "Stage": "dev"
+            },
+            "timeouts": null,
+            "value_specs": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "module": "module.cce",
+      "mode": "managed",
+      "type": "tls_private_key",
+      "name": "cluster_keypair",
+      "provider": "provider[\"registry.terraform.io/hashicorp/tls\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "algorithm": "ECDSA",
+            "ecdsa_curve": "P256",
+            "id": "e2f3c3655953cf5311a073920a3c1196a5ca2adf",
+            "private_key_openssh": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAaAAAABNl\nY2RzYS1zaGEyLW5pc3RwMjU2AAAACG5pc3RwMjU2AAAAQQSvuHnqdJhOtFpvHQ6K\neOl/2V55EpvIoph8U7Qei1QpHYHAxAlCG8Zn6baqrUbXC8WGKxS2BTQ2r5wPzxV4\nv8jyAAAAmEq0XgNKtF4DAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAy\nNTYAAABBBK+4eep0mE60Wm8dDop46X/ZXnkSm8iimHxTtB6LVCkdgcDECUIbxmfp\ntqqtRtcLxYYrFLYFNDavnA/PFXi/yPIAAAAgIlxYailbjAeIJdUyZO0AaaGK/vzP\nRY9/8uOovsD1myMAAAAA\n-----END OPENSSH PRIVATE KEY-----\n",
+            "private_key_pem": "-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEICJcWGopW4wHiCXVMmTtAGmhiv78z0WPf/LjqL7A9ZsjoAoGCCqGSM49\nAwEHoUQDQgAEr7h56nSYTrRabx0Oinjpf9leeRKbyKKYfFO0HotUKR2BwMQJQhvG\nZ+m2qq1G1wvFhisUtgU0Nq+cD88VeL/I8g==\n-----END EC PRIVATE KEY-----\n",
+            "public_key_fingerprint_md5": "24:b5:b0:10:1c:cf:7a:f3:b2:b0:20:ab:94:78:26:63",
+            "public_key_fingerprint_sha256": "SHA256:UOsCk5Jhi75f1OmFxCpEl5idmoZhRVZ1b3yEF9+Xsy8",
+            "public_key_openssh": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK+4eep0mE60Wm8dDop46X/ZXnkSm8iimHxTtB6LVCkdgcDECUIbxmfptqqtRtcLxYYrFLYFNDavnA/PFXi/yPI=\n",
+            "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEr7h56nSYTrRabx0Oinjpf9leeRKb\nyKKYfFO0HotUKR2BwMQJQhvGZ+m2qq1G1wvFhisUtgU0Nq+cD88VeL/I8g==\n-----END PUBLIC KEY-----\n",
+            "rsa_bits": 2048
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.encyrpted_secrets_bucket",
+      "mode": "managed",
+      "type": "opentelekomcloud_kms_key_v1",
+      "name": "encrypted_secrets_key",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"].top_level_project",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "creation_date": "1652435684000",
+            "default_key_flag": "0",
+            "domain_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "expiration_time": "",
+            "id": "59accd12-6b72-4eea-a55c-fa8b4dc80178",
+            "is_enabled": true,
+            "key_alias": "eu-de-stage-secrets-key-c301f115",
+            "key_description": "eu-de-stage-secrets encryption key",
+            "origin": "kms",
+            "pending_days": "7",
+            "realm": "eu-de",
+            "scheduled_deletion_date": "",
+            "tags": {}
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.opentelekomcloud_identity_project_v3.current",
+            "module.encyrpted_secrets_bucket.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.encyrpted_secrets_bucket",
+      "mode": "managed",
+      "type": "opentelekomcloud_obs_bucket",
+      "name": "secrets",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"].top_level_project",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "acl": "private",
+            "bucket": "eu-de-stage-secrets",
+            "bucket_domain_name": "eu-de-stage-secrets.obs.eu-de.otc.t-systems.com",
+            "cors_rule": [],
+            "event_notifications": [],
+            "force_destroy": false,
+            "id": "eu-de-stage-secrets",
+            "lifecycle_rule": [],
+            "logging": [],
+            "region": "eu-de",
+            "server_side_encryption": [
+              {
+                "algorithm": "kms",
+                "kms_key_id": "59accd12-6b72-4eea-a55c-fa8b4dc80178"
+              }
+            ],
+            "storage_class": "STANDARD",
+            "tags": {},
+            "versioning": true,
+            "website": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.opentelekomcloud_identity_project_v3.current",
+            "module.encyrpted_secrets_bucket.opentelekomcloud_kms_key_v1.encrypted_secrets_key",
+            "module.encyrpted_secrets_bucket.random_id.id"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.encyrpted_secrets_bucket",
+      "mode": "managed",
+      "type": "opentelekomcloud_obs_bucket_object",
+      "name": "secrets",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"].top_level_project",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acl": null,
+            "bucket": "eu-de-stage-secrets",
+            "content": "{\"cce_id\":\"showcase01-dev\",\"cce_name\":\"2f9d1d08-d2ae-11ec-90a6-0255ac101703\",\"client_certificate_data\":\"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVLVENDQXhHZ0F3SUJBZ0lJTWxnWGtIOEI4RTB3RFFZSktvWklodmNOQVFFTEJRQXdLVEVaTUJjR0ExVUUKQ2hNUVEwTkZJRlJsWTJodWIyeHZaMmxsY3pFTU1Bb0dBMVVFQXhNRFEwTkZNQjRYRFRJeU1EVXhNekV4TVRnegpNRm9YRFRJM01EVXhNekV4TVRnek1Gb3dNakVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhGekFWCkJnTlZCQU1URG5ONWMzUmxiVHB0WVhOMFpYSnpNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUIKQ2dLQ0FRRUExV0g3QUdpV0YxeVdBMUJjbnhyYlFIU3BpUWQyZEFYWUZ2VnJ2Yk4weUZiUUNmOHRsZEtaUUhsRwpNRHVkRUd6MDJTZFdvUTc0YWNmZSszZEhsckZiSzNRRFNQR2tmT3RkazVzZm9XTmtNbUJkeVhueUpNZEtvNlcrCnhwQmZkaHpWcnB0NjlsZ2Vhb1Nkd1d1c1lZanVHeE9JQ2hzK0xkTVBRcFI5NmJMZHg5a2tpOThNUnFpODBlK2UKNGNEWUp5VFJhTGZGNGxMMVdlaDAvMm51clZWdDdoQnZ3TVBDeXhCbXZsTzV3SWtQTmZyd1hKZUx4KzlQZHR3QQpkT3RRWmZHMzN4bWhzcUtmNWpJem9RWGxmWklsVjEzekx6Qm41bThicGZUVFJjWmhYdUdNUWJCYWtYbEhRQmNQCjBFNDRlL1J5QnhLcXFCTVZGK3RxVW1vUEM1VXJvUUlEQVFBQm80SUJTakNDQVVZd0RnWURWUjBQQVFIL0JBUUQKQWdXZ01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUNCZ2dyQmdFRkJRY0RBVEFmQmdOVkhTTUVHREFXZ0JUbAowZkt3TlFUQjE2ajAzemVVL050dzcvRXVKakNCOHdZRFZSMFJCSUhyTUlIb2dpUnJkV0psY201bGRHVnpMbVJsClptRjFiSFF1YzNaakxtTnNkWE4wWlhJdWJHOWpZV3lDRm10MVltVnlibVYwWlhNdVpHVm1ZWFZzZEM1emRtT0MKRW10MVltVnlibVYwWlhNdVpHVm1ZWFZzZElJS2EzVmlaWEp1WlhSbGM0SW5hWE4wYVc4dGMybGtaV05oY2kxcApibXBsWTNSdmNpNXBjM1JwYnkxemVYTjBaVzB1YzNaamdoZGxlSFJsY201aGJDNXJkV0psY201bGRHVnpMbk4yClk0Y1EvUUFTTkFBQUFBQUFBQUFBQUFBQUFZY0Vmd0FBQVljRUN2Y0FBb2NFcWY0ZkFvY0VDdmNBQVljRVpGTysKcVljRUNnQ3lSb2NFVUo1WTNvY0V3S2dzb1ljRXFmNGZBakFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSkt1MwpFVzhXYUtrUzBQOXZXK3hMR3oycU12SGxqVHVrVmdWajdwbzlJWnQ2a2hYYStzdzdFRmM4ZEpHVTd6WHRabW1RCkwxSjBmNER0cnhmbGxaVGx3UkMzQzlRZW5YckJGNEx4MklsU1A4WTFZQ3BTcHU5dS9abHZxQ2I5R3gzWGtGbEEKUDhqSmdodXlEN0lJY0YyREphYVBWajJ6aktQQktyQmpoZDFaTVpTQ083WjhFVThQK25rNEpmcXBGeE51WVladgpqSjBIZGdhdjdyNlV2cldMekF2SmI4am1GT2szcGE3bzBLSHVUMElIdlg3citiRzhhL3JyYy8ydGNaQStsd0UyClRVTm1VczRvQzNGSHNRWlNhTjFlRlZiUFVOaThYM0gzNmQwTVovTXZ0WFIrQXV2b3BEUmpxMFFlNC85U09uWWIKc0puK1BNUzRDamRCTVdoVkZnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=\",\"client_key_data\":\"LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMVdIN0FHaVdGMXlXQTFCY254cmJRSFNwaVFkMmRBWFlGdlZydmJOMHlGYlFDZjh0CmxkS1pRSGxHTUR1ZEVHejAyU2RXb1E3NGFjZmUrM2RIbHJGYkszUURTUEdrZk90ZGs1c2ZvV05rTW1CZHlYbnkKSk1kS282Vyt4cEJmZGh6VnJwdDY5bGdlYW9TZHdXdXNZWWp1R3hPSUNocytMZE1QUXBSOTZiTGR4OWtraTk4TQpScWk4MGUrZTRjRFlKeVRSYUxmRjRsTDFXZWgwLzJudXJWVnQ3aEJ2d01QQ3l4Qm12bE81d0lrUE5mcndYSmVMCngrOVBkdHdBZE90UVpmRzMzeG1oc3FLZjVqSXpvUVhsZlpJbFYxM3pMekJuNW04YnBmVFRSY1poWHVHTVFiQmEKa1hsSFFCY1AwRTQ0ZS9SeUJ4S3FxQk1WRit0cVVtb1BDNVVyb1FJREFRQUJBb0lCQVFEVTlaK3JUYllXQkxwVwovbG9pRkl5amJJdFREaGFqUHIzbVUvTytkUjdsWHZic016Zk1vazErOGtvaGt5MXpHanJYaXhKRFZZeUpEZ2cyCkVscHBSQUtJZ0pWU3RKQUVlR2FCRFQxcE5hZm5PeFAvSTJ5T1ZqUGcxV2RzQnVTdkhhSUpUSFZRN0tzV2hkcG8KRXMwTTNyczhYS2JWNTFDTUxXdTZlRGFlQ1h5Y21RRDZKWThla2tIM3FQUDNmcVNvTGVUOFRTdWJJaVUvR2oyVgp0a1ZtbDlwM3c3Z2FzN1phVmFwQnhXbGFhVHdYTDFaMFNxM01hL3pTQzA5SllqM3llZzJKSGdDMXVVNjY1OUJjCkFaNElLZjQxZDN1Vm9jM1VBUXMwUlFCcUpkQzk5KzJBei9yeFdWdTFMK1NzMnN1L2RLNVBVTGdlamlRWUlvVjcKUXVLdTFBc0JBb0dCQU94TWthTWJiTk4yUzMwUUhPWHFqblFLTlcrQW9zc2dOeis5ZDZ1azRvQXkyUGswd0M3YgpRQTNTclBHV1ZMMzAreVFPSEpEcU5FeWFYdUx1RzBXTkppbjFMbnNmcUgyUGR1Y2x3MWJtdXQwRWhQYTgxcEtICmdxUGVRYnhaclZLQmxRQVhWSHFURzhzeHRYbVcrdDVmWXM5ZFNVdm5yVGNZV0lDMGYyQXJRR1V4QW9HQkFPY3MKVEV4WGsrRWxsZmtPcHhTcUhRRU15d0VYWi90NDRwQnc4UlpVRHNZenJmcG1DSjlzamkvOWx5Y3FRTUVFNWhXMQoxdTRjTTdSdjhFazdKR0lFQUZOK1QyTkIxRG5JVlArcXU0Qis5VGtKcjIxMExsNEI5OEZDYWJoRVFEKzVJcWVWCmIxa05DWk8zd2xZZFJiNm0rdlAzd3FIcitKQkZJVmpHSlphZFpGRnhBb0dCQUpaU0ExZktpNGxlT0psL2xaS2gKaXl2QWpzdTIvbGpQenJYS3R3VkhLQnU3dlJHVGdDcU9xWW5obXNrNUJBR3ZoZEFpOWdNdUtrVU04dzNUd1IrVwpzaytBdktmd3RNUGpieFdPalZ5TC9SVzYyVWNKVEVyOHo1dWxPUll6eWpHeFkzTWlaRWh4cXYyeFNxdmw0d054CmxLOHJ2Z1AraHMrRXVsQnVBcFhRRGZBUkFvR0FXcTU1ejRpYkxicDh0aElWWUhuS250clIxei9EUGxZUktlL2oKNG9wZXNVa2NlaGtFVU9WWWNXTGNwRFJpNmxSdG5SNlRqUnZxL0dEY3RSMUtERmpkZCtNWWFTc3RnTzBneXBuQwpxNGtoMEpvSUFydU1aTHdJMy9xWlZmc1A2TzlLdE1wZHYyVHAyTlJBbTE4b09MMXZ1N3Y0MFdPclFZeWNwQ0kyCkpIcmhHMEVDZ1lBdGRudlhnNldzRjdEcC9tWUtISXg1VTVlR3FuaGZJdEpuWVJPS21jb0wzOU5YL3p4TjMwckwKNUtTOXUrdkVHQU9Ka2JxM25CSkNoMXo2bk1EdUJvTlRTUStDc2pvRjM1MXZweUVKT2tlRk5QWTZXWHhiQmtwcQpCWVFBNEVmN1VjQmgxTmswU2FOYUszeEpnYUVBMCt2cGt1VGlaVWtEZm9LbkJQdlhpa01GNFE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=\",\"elb_id\":\"5701329f-bd78-42d6-a1ef-4c514b08e8dc\",\"elb_public_ip\":\"80.158.60.85\",\"kube_api_endpoint\":\"https://80.158.88.222:5443\",\"kubectl_config\":\"\\\"apiVersion\\\": \\\"v1\\\"\\n\\\"clusters\\\":\\n- \\\"cluster\\\":\\n    \\\"insecure-skip-tls-verify\\\": true\\n    \\\"server\\\": \\\"https://80.158.88.222:5443\\\"\\n  \\\"name\\\": \\\"showcase01-dev-cluster\\\"\\n\\\"contexts\\\":\\n- \\\"context\\\":\\n    \\\"cluster\\\": \\\"showcase01-dev-cluster\\\"\\n    \\\"user\\\": \\\"terraform\\\"\\n  \\\"name\\\": \\\"showcase01-dev\\\"\\n\\\"current-context\\\": \\\"showcase01-dev\\\"\\n\\\"kind\\\": \\\"Config\\\"\\n\\\"preferences\\\": {}\\n\\\"users\\\":\\n- \\\"name\\\": \\\"terraform\\\"\\n  \\\"user\\\":\\n    \\\"client-certificate-data\\\": \\\"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVLVENDQXhHZ0F3SUJBZ0lJTWxnWGtIOEI4RTB3RFFZSktvWklodmNOQVFFTEJRQXdLVEVaTUJjR0ExVUUKQ2hNUVEwTkZJRlJsWTJodWIyeHZaMmxsY3pFTU1Bb0dBMVVFQXhNRFEwTkZNQjRYRFRJeU1EVXhNekV4TVRnegpNRm9YRFRJM01EVXhNekV4TVRnek1Gb3dNakVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhGekFWCkJnTlZCQU1URG5ONWMzUmxiVHB0WVhOMFpYSnpNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUIKQ2dLQ0FRRUExV0g3QUdpV0YxeVdBMUJjbnhyYlFIU3BpUWQyZEFYWUZ2VnJ2Yk4weUZiUUNmOHRsZEtaUUhsRwpNRHVkRUd6MDJTZFdvUTc0YWNmZSszZEhsckZiSzNRRFNQR2tmT3RkazVzZm9XTmtNbUJkeVhueUpNZEtvNlcrCnhwQmZkaHpWcnB0NjlsZ2Vhb1Nkd1d1c1lZanVHeE9JQ2hzK0xkTVBRcFI5NmJMZHg5a2tpOThNUnFpODBlK2UKNGNEWUp5VFJhTGZGNGxMMVdlaDAvMm51clZWdDdoQnZ3TVBDeXhCbXZsTzV3SWtQTmZyd1hKZUx4KzlQZHR3QQpkT3RRWmZHMzN4bWhzcUtmNWpJem9RWGxmWklsVjEzekx6Qm41bThicGZUVFJjWmhYdUdNUWJCYWtYbEhRQmNQCjBFNDRlL1J5QnhLcXFCTVZGK3RxVW1vUEM1VXJvUUlEQVFBQm80SUJTakNDQVVZd0RnWURWUjBQQVFIL0JBUUQKQWdXZ01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUNCZ2dyQmdFRkJRY0RBVEFmQmdOVkhTTUVHREFXZ0JUbAowZkt3TlFUQjE2ajAzemVVL050dzcvRXVKakNCOHdZRFZSMFJCSUhyTUlIb2dpUnJkV0psY201bGRHVnpMbVJsClptRjFiSFF1YzNaakxtTnNkWE4wWlhJdWJHOWpZV3lDRm10MVltVnlibVYwWlhNdVpHVm1ZWFZzZEM1emRtT0MKRW10MVltVnlibVYwWlhNdVpHVm1ZWFZzZElJS2EzVmlaWEp1WlhSbGM0SW5hWE4wYVc4dGMybGtaV05oY2kxcApibXBsWTNSdmNpNXBjM1JwYnkxemVYTjBaVzB1YzNaamdoZGxlSFJsY201aGJDNXJkV0psY201bGRHVnpMbk4yClk0Y1EvUUFTTkFBQUFBQUFBQUFBQUFBQUFZY0Vmd0FBQVljRUN2Y0FBb2NFcWY0ZkFvY0VDdmNBQVljRVpGTysKcVljRUNnQ3lSb2NFVUo1WTNvY0V3S2dzb1ljRXFmNGZBakFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSkt1MwpFVzhXYUtrUzBQOXZXK3hMR3oycU12SGxqVHVrVmdWajdwbzlJWnQ2a2hYYStzdzdFRmM4ZEpHVTd6WHRabW1RCkwxSjBmNER0cnhmbGxaVGx3UkMzQzlRZW5YckJGNEx4MklsU1A4WTFZQ3BTcHU5dS9abHZxQ2I5R3gzWGtGbEEKUDhqSmdodXlEN0lJY0YyREphYVBWajJ6aktQQktyQmpoZDFaTVpTQ083WjhFVThQK25rNEpmcXBGeE51WVladgpqSjBIZGdhdjdyNlV2cldMekF2SmI4am1GT2szcGE3bzBLSHVUMElIdlg3citiRzhhL3JyYy8ydGNaQStsd0UyClRVTm1VczRvQzNGSHNRWlNhTjFlRlZiUFVOaThYM0gzNmQwTVovTXZ0WFIrQXV2b3BEUmpxMFFlNC85U09uWWIKc0puK1BNUzRDamRCTVdoVkZnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=\\\"\\n    \\\"client-key-data\\\": \\\"LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMVdIN0FHaVdGMXlXQTFCY254cmJRSFNwaVFkMmRBWFlGdlZydmJOMHlGYlFDZjh0CmxkS1pRSGxHTUR1ZEVHejAyU2RXb1E3NGFjZmUrM2RIbHJGYkszUURTUEdrZk90ZGs1c2ZvV05rTW1CZHlYbnkKSk1kS282Vyt4cEJmZGh6VnJwdDY5bGdlYW9TZHdXdXNZWWp1R3hPSUNocytMZE1QUXBSOTZiTGR4OWtraTk4TQpScWk4MGUrZTRjRFlKeVRSYUxmRjRsTDFXZWgwLzJudXJWVnQ3aEJ2d01QQ3l4Qm12bE81d0lrUE5mcndYSmVMCngrOVBkdHdBZE90UVpmRzMzeG1oc3FLZjVqSXpvUVhsZlpJbFYxM3pMekJuNW04YnBmVFRSY1poWHVHTVFiQmEKa1hsSFFCY1AwRTQ0ZS9SeUJ4S3FxQk1WRit0cVVtb1BDNVVyb1FJREFRQUJBb0lCQVFEVTlaK3JUYllXQkxwVwovbG9pRkl5amJJdFREaGFqUHIzbVUvTytkUjdsWHZic016Zk1vazErOGtvaGt5MXpHanJYaXhKRFZZeUpEZ2cyCkVscHBSQUtJZ0pWU3RKQUVlR2FCRFQxcE5hZm5PeFAvSTJ5T1ZqUGcxV2RzQnVTdkhhSUpUSFZRN0tzV2hkcG8KRXMwTTNyczhYS2JWNTFDTUxXdTZlRGFlQ1h5Y21RRDZKWThla2tIM3FQUDNmcVNvTGVUOFRTdWJJaVUvR2oyVgp0a1ZtbDlwM3c3Z2FzN1phVmFwQnhXbGFhVHdYTDFaMFNxM01hL3pTQzA5SllqM3llZzJKSGdDMXVVNjY1OUJjCkFaNElLZjQxZDN1Vm9jM1VBUXMwUlFCcUpkQzk5KzJBei9yeFdWdTFMK1NzMnN1L2RLNVBVTGdlamlRWUlvVjcKUXVLdTFBc0JBb0dCQU94TWthTWJiTk4yUzMwUUhPWHFqblFLTlcrQW9zc2dOeis5ZDZ1azRvQXkyUGswd0M3YgpRQTNTclBHV1ZMMzAreVFPSEpEcU5FeWFYdUx1RzBXTkppbjFMbnNmcUgyUGR1Y2x3MWJtdXQwRWhQYTgxcEtICmdxUGVRYnhaclZLQmxRQVhWSHFURzhzeHRYbVcrdDVmWXM5ZFNVdm5yVGNZV0lDMGYyQXJRR1V4QW9HQkFPY3MKVEV4WGsrRWxsZmtPcHhTcUhRRU15d0VYWi90NDRwQnc4UlpVRHNZenJmcG1DSjlzamkvOWx5Y3FRTUVFNWhXMQoxdTRjTTdSdjhFazdKR0lFQUZOK1QyTkIxRG5JVlArcXU0Qis5VGtKcjIxMExsNEI5OEZDYWJoRVFEKzVJcWVWCmIxa05DWk8zd2xZZFJiNm0rdlAzd3FIcitKQkZJVmpHSlphZFpGRnhBb0dCQUpaU0ExZktpNGxlT0psL2xaS2gKaXl2QWpzdTIvbGpQenJYS3R3VkhLQnU3dlJHVGdDcU9xWW5obXNrNUJBR3ZoZEFpOWdNdUtrVU04dzNUd1IrVwpzaytBdktmd3RNUGpieFdPalZ5TC9SVzYyVWNKVEVyOHo1dWxPUll6eWpHeFkzTWlaRWh4cXYyeFNxdmw0d054CmxLOHJ2Z1AraHMrRXVsQnVBcFhRRGZBUkFvR0FXcTU1ejRpYkxicDh0aElWWUhuS250clIxei9EUGxZUktlL2oKNG9wZXNVa2NlaGtFVU9WWWNXTGNwRFJpNmxSdG5SNlRqUnZxL0dEY3RSMUtERmpkZCtNWWFTc3RnTzBneXBuQwpxNGtoMEpvSUFydU1aTHdJMy9xWlZmc1A2TzlLdE1wZHYyVHAyTlJBbTE4b09MMXZ1N3Y0MFdPclFZeWNwQ0kyCkpIcmhHMEVDZ1lBdGRudlhnNldzRjdEcC9tWUtISXg1VTVlR3FuaGZJdEpuWVJPS21jb0wzOU5YL3p4TjMwckwKNUtTOXUrdkVHQU9Ka2JxM25CSkNoMXo2bk1EdUJvTlRTUStDc2pvRjM1MXZweUVKT2tlRk5QWTZXWHhiQmtwcQpCWVFBNEVmN1VjQmgxTmswU2FOYUszeEpnYUVBMCt2cGt1VGlaVWtEZm9LbkJQdlhpa01GNFE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=\\\"\\n\",\"kubernetes_ca_cert\":\"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUREekNDQWZlZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFwTVJrd0Z3WURWUVFLRXhCRFEwVWcKVkdWamFHNXZiRzluYVdWek1Rd3dDZ1lEVlFRREV3TkRRMFV3SGhjTk1qSXdOVEV6TVRFeE9ESTVXaGNOTkRJdwpOVEV6TVRFeE9ESTVXakFwTVJrd0Z3WURWUVFLRXhCRFEwVWdWR1ZqYUc1dmJHOW5hV1Z6TVF3d0NnWURWUVFECkV3TkRRMFV3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRFZZZnNBYUpZWFhKWUQKVUZ5Zkd0dEFkS21KQjNaMEJkZ1c5V3U5czNUSVZ0QUoveTJWMHBsQWVVWXdPNTBRYlBUWkoxYWhEdmhweDk3NwpkMGVXc1ZzcmRBTkk4YVI4NjEyVG14K2hZMlF5WUYzSmVmSWt4MHFqcGI3R2tGOTJITld1bTNyMldCNXFoSjNCCmE2eGhpTzRiRTRnS0d6NHQwdzlDbEgzcHN0M0gyU1NMM3d4R3FMelI3NTdod05nbkpORm90OFhpVXZWWjZIVC8KYWU2dFZXM3VFRy9BdzhMTEVHYStVN25BaVE4MSt2QmNsNHZINzA5MjNBQjA2MUJsOGJmZkdhR3lvcC9tTWpPaApCZVY5a2lWWFhmTXZNR2ZtYnh1bDlOTkZ4bUZlNFl4QnNGcVJlVWRBRncvUVRqaDc5SElIRXFxb0V4VVg2MnBTCmFnOExsU3VoQWdNQkFBR2pRakJBTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQQmdOVkhSTUJBZjhFQlRBREFRSC8KTUIwR0ExVWREZ1FXQkJUbDBmS3dOUVRCMTZqMDN6ZVUvTnR3Ny9FdUpqQU5CZ2txaGtpRzl3MEJBUXNGQUFPQwpBUUVBVFZoazVjYTI3N3c5T3JJUXJEZ0JrSUZ6Rm5keDdXOU1MdHhBUFZRZ0FiUCtXMERBVGgyNm1jWkV3QUUvCjVjOTlKbTFpSU53WUZmRHN2eEptMkN0WHcyczk4Z1BzblMyNUwzbVVlakZ0UHNTZEJKTm5NblBUWmIrSGpkN2sKZDVXOHI0WFNoYnVOZ2ZxNVRlSStDUGJINmJkZjdCWFo5R1dkTmhRN1d2MDI5ZHdwVm1td2ZLdU1hM21iMklSTApuL0ROTlhXQWFYc0h5YnZvL1F1c2NuZ1AyL29HUXNSbG8wQm42Y3Rod3JwQUkrUStqdmkrVWFudTR1VG92em4wClNGSnVNdmgwM1hsZHJTaFc2Q3VybVVLZzkzK2wzR1JWS1NLVk00cnlLT0tpQVlFOHQ2ZHk5WHBhVWNWT1VyMkoKY3hBV1Z2Q2ducDNwVEIyOXpoQXlGRjNpcVE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\"}",
+            "content_type": "application/json",
+            "encryption": true,
+            "etag": "7ac4581fdffec66d2ee4116254e8ae11",
+            "id": "terraform-secrets",
+            "key": "terraform-secrets",
+            "kms_key_id": "59accd12-6b72-4eea-a55c-fa8b4dc80178",
+            "size": 10821,
+            "source": null,
+            "storage_class": "STANDARD",
+            "version_id": "G0011180BD27F85500004C1E00A178C6"
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "content"
+              }
+            ]
+          ],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "data.opentelekomcloud_identity_project_v3.current",
+            "module.cce.opentelekomcloud_cce_cluster_v3.cluster",
+            "module.cce.opentelekomcloud_vpc_eip_v1.cce_eip",
+            "module.encyrpted_secrets_bucket.opentelekomcloud_kms_key_v1.encrypted_secrets_key",
+            "module.encyrpted_secrets_bucket.random_id.id",
+            "module.loadbalancer.opentelekomcloud_lb_loadbalancer_v2.elb",
+            "module.loadbalancer.opentelekomcloud_vpc_eip_v1.ingress_eip",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.encyrpted_secrets_bucket",
+      "mode": "managed",
+      "type": "random_id",
+      "name": "id",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "b64_std": "wwHxFQ==",
+            "b64_url": "wwHxFQ",
+            "byte_length": 4,
+            "dec": "3271684373",
+            "hex": "c301f115",
+            "id": "wwHxFQ",
+            "keepers": null,
+            "prefix": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.loadbalancer",
+      "mode": "managed",
+      "type": "opentelekomcloud_lb_loadbalancer_v2",
+      "name": "elb",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "admin_state_up": true,
+            "description": "ELB for project showcase01 (dev)",
+            "id": "5701329f-bd78-42d6-a1ef-4c514b08e8dc",
+            "loadbalancer_provider": "vlb",
+            "name": "elb_showcase01_dev",
+            "region": "eu-de",
+            "tags": {},
+            "tenant_id": "fb107fb3e2de44bfba4e808c0067048d",
+            "timeouts": null,
+            "vip_address": "192.168.11.219",
+            "vip_port_id": "899c29d4-e4b8-46dd-b1f7-cb831d4f3889",
+            "vip_subnet_id": "adad1021-473a-440f-b15c-fc4b5d78049c"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.loadbalancer",
+      "mode": "managed",
+      "type": "opentelekomcloud_vpc_eip_v1",
+      "name": "ingress_eip",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bandwidth": [
+              {
+                "charge_mode": "traffic",
+                "name": "dev-showcase01-ingress-bandwidth",
+                "share_type": "PER",
+                "size": 500
+              }
+            ],
+            "id": "157a4534-630e-4368-ad07-4015727f58b0",
+            "publicip": [
+              {
+                "ip_address": "80.158.60.85",
+                "port_id": "899c29d4-e4b8-46dd-b1f7-cb831d4f3889",
+                "type": "5_bgp"
+              }
+            ],
+            "region": "eu-de",
+            "tags": {},
+            "timeouts": null,
+            "value_specs": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.loadbalancer.opentelekomcloud_lb_loadbalancer_v2.elb",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_subnet_v1.subnets",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.private_dns",
+      "mode": "data",
+      "type": "opentelekomcloud_identity_project_v3",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "domain_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "enabled": true,
+            "id": "fb107fb3e2de44bfba4e808c0067048d",
+            "is_domain": false,
+            "name": "eu-de",
+            "parent_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "region": "eu-de"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.private_dns",
+      "mode": "managed",
+      "type": "opentelekomcloud_dns_recordset_v2",
+      "name": "a_records",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "index_key": "example",
+          "schema_version": 0,
+          "attributes": {
+            "description": "Private DNS zone A record",
+            "id": "ff80808275f5fc0f0180bcd7b036752c/ff80808275f5fb9c0180bcd7cad312ed",
+            "name": "example.internal.showcase01.de.",
+            "records": [
+              "192.168.0.0"
+            ],
+            "region": "eu-de",
+            "shared": false,
+            "tags": {},
+            "timeouts": null,
+            "ttl": 300,
+            "type": "A",
+            "value_specs": null,
+            "zone_id": "ff80808275f5fc0f0180bcd7b036752c"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.private_dns.data.opentelekomcloud_identity_project_v3.current",
+            "module.private_dns.opentelekomcloud_dns_zone_v2.private_zone",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.private_dns",
+      "mode": "managed",
+      "type": "opentelekomcloud_dns_zone_v2",
+      "name": "private_zone",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Private DNS entries for internal.showcase01.de.",
+            "email": "dl-otc-domains@telekom.de",
+            "id": "ff80808275f5fc0f0180bcd7b036752c",
+            "masters": [],
+            "name": "internal.showcase01.de.",
+            "region": "eu-de",
+            "router": [
+              {
+                "router_id": "2c68da83-a6dd-4253-a8b7-d8744c59a888",
+                "router_region": "eu-de"
+              }
+            ],
+            "tags": {},
+            "timeouts": null,
+            "ttl": 300,
+            "type": "private",
+            "value_specs": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.private_dns.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "data",
+      "type": "opentelekomcloud_identity_project_v3",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "",
+            "domain_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "enabled": true,
+            "id": "fb107fb3e2de44bfba4e808c0067048d",
+            "is_domain": false,
+            "name": "eu-de",
+            "parent_id": "6f6a3cb0727143f7b5c66da795a01000",
+            "region": "eu-de"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "opentelekomcloud_vpc_subnet_v1",
+      "name": "subnets",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "index_key": "showcase01-dev-subnet",
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "",
+            "cidr": "192.168.0.0/17",
+            "dhcp_enable": true,
+            "dns_list": [
+              "100.125.4.25",
+              "100.125.129.199"
+            ],
+            "gateway_ip": "192.168.0.1",
+            "id": "0b068c02-8b40-457d-99f5-966ed64cd5a8",
+            "name": "showcase01-dev-subnet",
+            "network_id": "0b068c02-8b40-457d-99f5-966ed64cd5a8",
+            "ntp_addresses": null,
+            "primary_dns": "100.125.4.25",
+            "region": "eu-de",
+            "secondary_dns": "100.125.129.199",
+            "subnet_id": "adad1021-473a-440f-b15c-fc4b5d78049c",
+            "tags": {
+              "Context": "showcase01",
+              "Stage": "dev"
+            },
+            "timeouts": null,
+            "vpc_id": "2c68da83-a6dd-4253-a8b7-d8744c59a888"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current",
+            "module.vpc.opentelekomcloud_vpc_v1.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "opentelekomcloud_vpc_v1",
+      "name": "vpc",
+      "provider": "provider[\"registry.terraform.io/opentelekomcloud/opentelekomcloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr": "192.168.0.0/16",
+            "id": "2c68da83-a6dd-4253-a8b7-d8744c59a888",
+            "name": "showcase01-dev-vpc",
+            "region": "eu-de",
+            "shared": true,
+            "status": "OK",
+            "tags": {
+              "Context": "showcase01",
+              "Stage": "dev"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTgwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.vpc.data.opentelekomcloud_identity_project_v3.current"
+          ]
+        }
+      ]
+    }
+  ]
+}
+

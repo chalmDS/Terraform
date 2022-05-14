@@ -2,7 +2,7 @@ data "opentelekomcloud_identity_project_v3" "current" {}
 
 module "terraform_secrets_from_encrypted_s3_bucket" {
   source            = "iits-consulting/project-factory/opentelekomcloud//modules/obs_secrets_reader"
-  version           = "4.0.0"
+  version           = "4.0.1"
   bucket_name       = replace(lower("${data.opentelekomcloud_identity_project_v3.current.name}-stage-secrets"), "_", "-")
   bucket_object_key = "terraform-secrets"
   required_secrets = [
@@ -32,7 +32,7 @@ locals {
 
 module "argocd" {
   source  = "iits-consulting/bootstrap/argocd"
-  version = "1.0.0"
+  version = "1.0.1"
 
   ## Common CRD collection Configuration, see https://github.com/iits-consulting/crds-chart
   custom_resource_definitions_enabled = true
@@ -44,9 +44,9 @@ module "argocd" {
   ### ArgoCD Configuration
   argocd_namespace                 = "argocd"
   argocd_project_name              = "infrastructure-charts"
-  argocd_git_access_token_username = "ARGO_CD_WITH_DEPLOYMENT"
+  argocd_git_access_token_username = "chalmDS"
   argocd_git_access_token          = var.argocd_git_access_token
-  argocd_project_source_repo_url   = "https://github.com/iits-consulting/otc-infrastructure-charts-template.git"
+  argocd_project_source_repo_url   = "https://github.com/chalmDS/Infrastructure_Charts.git"
   argocd_project_source_path       = "stages/${var.stage}/infrastructure-charts"
   argocd_application_values = {
     global = {

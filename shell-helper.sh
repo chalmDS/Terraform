@@ -1,4 +1,5 @@
 #!/bin/bash
+LANG=en_us_88591
 
 function getStageSecretsBucket(){
   if [[ -z "${OS_PROJECT_NAME}" ]]; then
@@ -6,6 +7,7 @@ function getStageSecretsBucket(){
     return 1
   fi
   PROJECT=${OS_PROJECT_NAME/"_"/"-"}
+  CONTEXT=${TF_VAR_context/"_"/"-"}
   BUCKET_NAME=$PROJECT-stage-secrets
   secretspath="/terraform-secrets"
   current_date=$(date +'%a, %d %b %Y %H:%M:%S %z')

@@ -1,12 +1,12 @@
 data "opentelekomcloud_identity_project_v3" "current" {}
 
-module "cloud_tracing_service" {
-  providers    = { opentelekomcloud = opentelekomcloud.top_level_project }
-  source       = "iits-consulting/project-factory/opentelekomcloud//modules/cloud_tracing_service"
-  version      = "4.0.0"
-  bucket_name  = replace(lower("${data.opentelekomcloud_identity_project_v3.current.name}-cts"), "_", "-")
-  project_name = data.opentelekomcloud_identity_project_v3.current.name
-}
+#module "cloud_tracing_service" {
+#  providers    = { opentelekomcloud = opentelekomcloud.top_level_project }
+#  source       = "iits-consulting/project-factory/opentelekomcloud//modules/cloud_tracing_service"
+#  version      = "4.0.0"
+#  bucket_name  = replace(lower("${data.opentelekomcloud_identity_project_v3.current.name}-cts"), "_", "-")
+#  project_name = data.opentelekomcloud_identity_project_v3.current.name
+#}
 
 module "vpc" {
   source     = "iits-consulting/project-factory/opentelekomcloud//modules/vpc"
